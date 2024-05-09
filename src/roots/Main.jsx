@@ -8,11 +8,11 @@ const Main = () => {
       {/* Navbar */}
       <Navbar />
       {/* Outlet */}
-      <div className='min-h-[calc(100vh-306px)]'>
+      <div className='min-h-[calc(100vh-524px)]'>
         <Outlet />
       </div>
       {/* Footer */}
-      <Footer />
+      <Footer/>
     </div>
   )
 }
