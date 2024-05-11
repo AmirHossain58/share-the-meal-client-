@@ -1,17 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import useAuth from '../../hooks/useAuth';
 import toast from 'react-hot-toast';
 import { FaGithub } from 'react-icons/fa';
 
 const Login = () => {
+  const navigate = useNavigate()
+  const location = useLocation()
+  const from = location.state || '/'
     const { user, logOut ,signIn, signInWithGoogle,signInWithGithub} = useAuth()
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit =async data => {
         try{
             await signIn(data.email,data.password)
             toast.success('Signup Successful')
+            navigate(from, { replace: true })
         } catch (err) {
           console.log(err)
           toast.error(err?.message)
@@ -28,6 +32,7 @@ const Login = () => {
       try{
         await signInWithGithub()
         toast.success('Signup Successful')
+        navigate(from, { replace: true })
     } catch (err) {
       console.log(err)
       toast.error(err?.message)
@@ -38,6 +43,7 @@ const Login = () => {
       try{
         await signInWithGoogle()
         toast.success('Signup Successful')
+        navigate(from, { replace: true })
     } catch (err) {
       console.log(err)
       toast.error(err?.message)

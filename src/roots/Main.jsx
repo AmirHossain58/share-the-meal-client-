@@ -8,7 +8,7 @@ const Main = () => {
       {/* Navbar */}
       <Navbar />
       {/* Outlet */}
-      <div className='min-h-[calc(100vh-524px)]'>
+      <div className='container mx-auto min-h-[calc(100vh-578px)]'>
         <Outlet />
       </div>
       {/* Footer */}

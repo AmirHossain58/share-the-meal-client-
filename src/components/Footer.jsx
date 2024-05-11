@@ -7,7 +7,7 @@ const Footer = () => {
          <footer className="footer p-10 bg-base-200 text-base-content">
   <aside className='gap-0'>
   <Link to={'/'} className="font-bold text-xl">
-    <img className='w-auto h-14' src="/logo-stm-wfp.svg" alt="" />
+    <img className='w-auto h-14' src="/logo1.png" alt="" />
   </Link>
   <p></p>
   </aside> 

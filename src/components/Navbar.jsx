@@ -39,7 +39,7 @@ const Navbar = () => {
     <div className="navbar bg-base-100 shadow-sm container px-4 mx-auto">
       <div className="flex-1">
         <Link to="/" className="flex gap-2 items-center">
-          <img className="w-auto h-14" src={"/logo-stm-wfp.svg"} alt="" />
+          <img className="w-auto h-14" src={"/logo1.png"} alt="" />
         </Link>
       </div>
       <div className="flex-none">
