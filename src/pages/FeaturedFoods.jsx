@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import FoodCard from './FoodCard';
+import { Link } from 'react-router-dom';
 
 const FeaturedFoods = () => {
     const [foodData,setFoodData]=useState([])
@@ -24,12 +25,16 @@ const FeaturedFoods = () => {
         </p>
 
       </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 justify-center gap-5 ">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 justify-center gap-8 ">
         {foodData.slice(0,6).map((food, i) => (
           <FoodCard key={i} food={food}></FoodCard>
         ))}
       </div>
-      <div className='text-center my-8'><button className="btn">Show All Food</button></div>
+      <div className='text-center my-8'>
+        <Link to={'/availableFoods'}>
+        <button className="btn">Show All Foods</button>
+        </Link>
+        </div>
         </div>
     );
 };

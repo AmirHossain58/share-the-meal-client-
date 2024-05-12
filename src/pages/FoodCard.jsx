@@ -16,7 +16,7 @@ const FoodCard = ({food}) => {
     return (
         <div>
         <Link to={`/details/${_id}`}>
-        <Card className="w-full max-w-[26rem] shadow-xl min-h-[px] p-4 hover:scale-105 rounded transition-all">
+        <Card className="w-full bg-gray-100 max-w-[26rem] shadow-xl min-h-[px] p-4 hover:scale-105 rounded transition-all">
    <CardHeader floated={false}>
      <img
      className=' bg-cover p-5 w-full max-h-[330px] min-h-[330px]'

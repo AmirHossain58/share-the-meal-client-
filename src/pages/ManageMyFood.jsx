@@ -19,7 +19,7 @@ const ManageMyFood = () => {
       });
     const remaining = userAddData.filter((data) => data.donator.email === user.email);
     setUseAddData1(remaining);
-  }, [userAddData]);
+  }, [userAddData,user]);
   const handleDelete = (id) => {
     // console.log(id);
     Swal.fire({
@@ -32,7 +32,7 @@ const ManageMyFood = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`${import.meta.env.VITE_API_URL}/TouristsSpot/${id}`, {
+        fetch(`${import.meta.env.VITE_API_URL}/food/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -41,7 +41,7 @@ const ManageMyFood = () => {
             if (data.deletedCount > 0) {
               Swal.fire(
                 "Deleted!",
-                "Your Tourists Spots has been deleted.",
+                "Food has been deleted.",
                 "success"
               );
               const remaining = userAddDataSort.filter(
