@@ -11,12 +11,10 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 import Slide from './Slide'
 
 import bgimg1 from '/girl.avif'
-import bgimg2 from '/girl.avif'
-import bgimg3 from '/girl.avif'
 
 export default function Carousel() {
   return (
-    <div className='container px-6 py-10 mx-auto'>
+    <div className='py-10 mx-auto'>
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

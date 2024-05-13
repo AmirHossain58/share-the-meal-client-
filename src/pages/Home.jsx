@@ -2,6 +2,8 @@ import React from 'react';
 import Carousel from '../components/Carousel';
 import FeaturedFoods from './FeaturedFoods';
 import useAuth from '../hooks/useAuth';
+import Donation from './Donation';
+import FoodRight from './FoodRight';
 
 const Home = () => {
     const{loading}=useAuth()
@@ -14,7 +16,9 @@ const Home = () => {
     return (
         <div>
             <Carousel></Carousel>
+            <FoodRight></FoodRight>
             <FeaturedFoods></FeaturedFoods>
+            <Donation></Donation>
         </div>
     );
 };

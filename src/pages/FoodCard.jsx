@@ -10,24 +10,20 @@ import {
     IconButton,
   } from "@material-tailwind/react";
 import { Link } from 'react-router-dom';
+import { motion } from "framer-motion"
+
+
 const FoodCard = ({food}) => {
     const {foodName,foodImage,foodQuantity,foodStatus,pickupLocation,_id,expiredTime
     }=food||{}
     return (
         <div>
+          
         <Link to={`/food/${_id}`}>
-        <Card className="w-full bg-gray-100 max-w-[26rem] shadow-xl min-h-[px] md:p-4 hover:scale-105 rounded transition-all">
-   <CardHeader floated={false}>
-     <img
-     className=' bg-cover p-5 w-full max-h-[330px] min-h-[330px]'
-       src={foodImage}
-       alt="ui/ux review check"
-     />
-   
-   </CardHeader>
-   <CardBody className='flex-grow'>
-     <div className="mb-3 mt-2 flex items-center justify-between">
-       <Typography variant="h3" color="blue-gray" className="font-medium">
+        <Card className="w-full  max-w-[26rem] shadow-xl min-h-[px] md:p-4 hover:scale-105 rounded transition-all">
+   <div floated={false}>
+   <div className="mb-3 flex items-center justify-between">
+       <Typography variant="h2" color="blue-gray" className="font-bold">
        {foodName}
        </Typography>
        <Typography
@@ -49,6 +45,17 @@ const FoodCard = ({food}) => {
          5.0
        </Typography>
      </div>
+    
+   
+   </div>
+   <CardBody className='flex-grow'>
+    <div>
+    <img
+     className=' mb-3 bg-cover  rounded-br-none rounded-[30%] rounded-tl-none overflow-hidden w-full max-h-[330px] min-h-[330px]'
+       src={foodImage}
+       alt="food image"
+     />
+    </div>
      <div className='flex flex-col md:flex-row justify-between px-2 text-lg font-semibold mb-2'>
      <Typography color="gray">
      Food Quantity :  {foodQuantity}
