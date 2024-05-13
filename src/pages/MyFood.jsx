@@ -2,25 +2,30 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 import useAxiosSecure from '../hooks/useAxiosSecure';
-
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
 const MyFood = () => {
   const{loading}=useAuth()
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const [userAddData, setUseAddData] = useState([]);
-  useEffect(() => {
-    // fetch(`${import.meta.env.VITE_API_URL}/reqFood?email=${user.email}`,{ withCredentials: true })
-    // .then((res) => res.json())
-    // .then((data) => {
-    //   // setUseAddData(data);
-    //   console.log(data)
-    // });
-    axiosSecure.get(`/reqFood?email=${user.email}`)
-        .then(res => setUseAddData(res.data))
-    
-  }, [user]);
-  if (loading){
-      return <div className='flex justify-center items-center my-12'><span className="loading loading-ball loading-xs"></span>
+  const getData = async () => {
+    const { data } = await axiosSecure.get(`/reqFood?email=${user.email}`)
+    return data
+  }
+  const queryClient = useQueryClient()
+  const { data: food = [], isLoading } = useQuery({
+    queryFn: () => getData(),
+    queryKey: ['food', user?.email],
+  })
+  
+  if (isLoading){
+      return <div className='flex w-full mx-auto justify-center items-center my-12'><span className="loading loading-ball loading-xs"></span>
       <span className="loading loading-ball loading-sm"></span>
       <span className="loading loading-ball loading-md"></span>
       <span className="loading loading-ball loading-lg"></span></div>
@@ -43,7 +48,7 @@ const MyFood = () => {
             </thead>
             <tbody>
               {/* row 1 */}
-              {userAddData?.map((data, i) => (
+              {food?.map((data, i) => (
                 <tr key={data._id}>
                   <th>{i + 1}</th>
                   <td>{data?.donator?.name}</td>

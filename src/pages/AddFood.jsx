@@ -6,11 +6,26 @@ import toast from 'react-hot-toast'
 import axios from 'axios'
 import useAuth from '../hooks/useAuth'
 import useAxiosSecure from '../hooks/useAxiosSecure';
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
 const AddFood = () => {
   const axiosSecure = useAxiosSecure();
     const { user } = useAuth()
   const navigate = useNavigate()
 
+  const {mutateAsync}=useMutation({
+    mutationFn:async({foodData})=>{
+    await  axiosSecure.post('/addFood',foodData)
+    },
+    onSuccess:()=>{
+      toast.success('Food Added Successfully!')
+    }
+  })
   const [expiredDate, setExpiredDate] = useState(new Date())
 
   const handleAddAFood = async e => {
@@ -38,16 +53,7 @@ const AddFood = () => {
       foodStatus,
     }
     try {
-      axiosSecure.post('/addFood',foodData)
-        .then(res =>{
-
-        })
-      // const { data } = await axios.post(
-      //   `${import.meta.env.VITE_API_URL}/addFood`,
-      //   foodData
-      // )
-      // console.log(data)
-      toast.success('Food Added Successfully!')
+      await mutateAsync({foodData})
     } catch (err) {
       console.log(err)
     }

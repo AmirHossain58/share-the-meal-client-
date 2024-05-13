@@ -1,14 +1,36 @@
-import React from 'react';
-import {useLoaderData, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import {useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import DatePicker from 'react-datepicker'
 import useAuth from '../hooks/useAuth';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-
+import useAxiosSecure from '../hooks/useAxiosSecure';
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+} from '@tanstack/react-query'
 const UpdateFood = () => {
+  const [food,setFood]=useState([])
     const navigate =useNavigate()
+    const axiosSecure = useAxiosSecure();
     const {user}=useAuth()
-     const food=useLoaderData()
+     const {id}=useParams()
+     const {mutateAsync}=useMutation({
+      mutationFn:async({updateFoodData,_id})=>{
+      await  axiosSecure.put(`/food/${_id}`,updateFoodData)
+      },
+      onSuccess:()=>{
+        toast.success('Food Updated Successfully!')
+        navigate('/manageMyFoods')
+      }
+    })
+     useEffect(()=>{
+      axiosSecure.get(`/details/${id}`)
+      .then(res =>{
+  setFood(res.data);
+      })
+    },[axiosSecure,id])
      const {
         foodName,
         foodImage,
@@ -41,12 +63,17 @@ const UpdateFood = () => {
     }
     try {
      
-      const { data } = await axios.put(
-        `${import.meta.env.VITE_API_URL}/food/${_id}`,
-        updateFoodData
-      )
-      toast.success('Food Request Added Successfully!')
-      navigate('/manageMyFoods')
+      // const { data } = await axios.put(
+      //   `${import.meta.env.VITE_API_URL}/food/${_id}`,
+      //   updateFoodData
+      // )
+      mutateAsync({updateFoodData,_id})
+      // axiosSecure.put(`/food/${_id}`,updateFoodData)
+      // .then(res =>{
+
+      // })
+      // toast.success('Food Updated Successfully!')
+      // navigate('/manageMyFoods')
     } catch (err) {
       console.log(err)
     }

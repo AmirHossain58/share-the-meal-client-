@@ -1,5 +1,5 @@
-import React from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import useAuth from './../hooks/useAuth';
 
 import {
@@ -13,13 +13,37 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import DatePicker from 'react-datepicker'
-
-import axios from "axios";
 import toast from "react-hot-toast";
+import useAxiosSecure from "../hooks/useAxiosSecure";
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
 const FoodCardDetails = () => {
+
+  const{id}=useParams()
+  const axiosSecure = useAxiosSecure();
   const navigate=useNavigate()
   const{user}=useAuth()
-  const foodData = useLoaderData();
+  // const [foodData,setFoodData]=useState([])
+
+  const getData = async () => {
+    const { data } = await axiosSecure.get(`/details/${id}`)
+    return data
+  }
+    const { data: foodData = [], isLoading } = useQuery({
+    queryFn: () => getData(),
+    queryKey: ['food', user?.email],
+  })
+  useEffect(()=>{
+    // axiosSecure.get(`/details/${id}`)
+//     .then(res =>{
+// setFoodData(res.data);
+//     })
+  },[])
   const {
     foodName,
     foodImage,
@@ -49,16 +73,15 @@ const FoodCardDetails = () => {
       donation:e.target.donation.value,
     }
     try {
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_API_URL}/reqFood`,
+      const { data } = await axiosSecure.post(`/reqFood`,
         requestedFoodData
       )
-      const { data2 } = await axios.put(
-        `${import.meta.env.VITE_API_URL}/food/${_id}`,
+      const { data2 } = await axiosSecure.put(
+        `/food/${_id}`,
         status
       )
       toast.success('Food Request Added Successfully!')
-      navigate('/')
+      navigate('/myFoodRequest')
     } catch (err) {
       console.log(err)
     }
@@ -71,7 +94,7 @@ const FoodCardDetails = () => {
           Donar Information:
         </Typography>
         <Typography variant="h4" color="blue-gray" className="font-bold">
-          Donar Name: {donator.name}
+          Donar Name: {donator?.name}
         </Typography>
         <Typography variant="h5" color="blue-gray" className="">
           Food Pickup Location: {pickupLocation}
@@ -199,7 +222,7 @@ const FoodCardDetails = () => {
                   name='foodId'
                   type='text'
                   required
-                  value={donator.email}
+                  value={donator?.email}
                   className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
                 />
               </div>
@@ -212,7 +235,7 @@ const FoodCardDetails = () => {
                   name='foodId'
                   type='text'
                   required
-                  value={donator.name}
+                  value={donator?.name}
                   className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
                 />
               </div>
