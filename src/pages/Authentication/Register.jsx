@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import useAuth from '../../hooks/useAuth';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import { FaGithub } from 'react-icons/fa';
+import { FaEye, FaEyeSlash, FaGithub } from 'react-icons/fa';
+import loginImg  from '../../../public/login.svg'
 const Register = () => {
     const navigate = useNavigate()
     const location = useLocation()
+    const [show,setShow]=useState(false)
     const from = location.state || '/'
     const { user, logOut,setUser ,createUser,updateUserProfile,signInWithGoogle,signInWithGithub} = useAuth()
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -49,8 +51,11 @@ const Register = () => {
     }
     }
     return (
-        <div className='flex justify-center items-center min-h-[calc(100vh-306px)]'>
-      <div className='flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl '>
+        <div className='flex flex-col md:flex-row justify-center items-center min-h-[calc(100vh-306px)]'>
+          <div className='flex-1'> 
+            <img src={loginImg} alt="" />
+            </div>
+      <div className='flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-[50%] flex-1'>
         <div className='w-full px-6 py-8 md:px-8 '>
           <div className='flex justify-center mx-auto'>
             <img
@@ -60,10 +65,9 @@ const Register = () => {
             />
           </div>
 
-          <p className='mt-3 text-xl text-center text-gray-600 '>
-            Get Your Free Account Now.
-          </p>
-
+          <p className='mt-3 text-5xl font-bold text-center text-gray-600 '>
+         Create an account Or  Login
+            </p>
           <div onClick={handleSignInWithGoogle} className='flex cursor-pointer items-center justify-center shadow-xl mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 '>
             <div  className='px-4 py-2'>
               <svg className='w-6 h-6' viewBox='0 0 40 40'>
@@ -164,26 +168,30 @@ const Register = () => {
                  {errors.email && <span className='text-red-500'>This field is required</span>}
             </div>
 
-            <div className='mt-4'>
-              <div className='flex justify-between'>
-                <label
-                  className='block mb-2 text-sm font-medium text-gray-600 '
-                  htmlFor='loggingPassword'
-                >
-                  Password
-                </label>
-              </div>
-
-              <input
-                id='loggingPassword'
-                autoComplete='current-password'
-                name='password'
-                className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
-                type='password'
+            <div className='mt-4 relative'>
+                <div className='flex justify-between'>
+                  <label
+                    className='block mb-2 text-sm font-medium text-gray-600 '
+                    htmlFor='loggingPassword'
+                  >
+                    Password
+                  </label>
+                </div>
+  
+                <input
                 {...register("password", { required: true })}
+                  id='loggingPassword'
+                  autoComplete='current-password'
+                  name='password'
+                  className='block relative w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
+                  type={show?'text':'password'}
                 />
-                 {errors.password && <span className='text-red-500'>This field is required</span>}
-            </div>
+                
+                 {errors.password&& <span className='text-red-500'>This field is required</span>}
+                 <div onClick={()=>{setShow(!show)}} className='absolute text-3xl right-4 top-[50%]'>
+            
+            {show?<FaEye />:<FaEyeSlash />}</div>
+              </div>
             <div className='mt-6'>
               <button
                 type='submit'

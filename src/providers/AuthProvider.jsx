@@ -13,6 +13,7 @@ import {
 } from 'firebase/auth'
 import { app } from '../firebase/firebase.config'
 import axios from 'axios'
+import useAxiosSecure from '../hooks/useAxiosSecure'
 
 export const AuthContext = createContext(null)
 const auth = getAuth(app)
@@ -20,6 +21,7 @@ const googleProvider = new GoogleAuthProvider()
 const githubProvider = new GithubAuthProvider()
 
 const AuthProvider = ({ children }) => {
+  const {axiosSecure}=useAxiosSecure()
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
 
@@ -61,13 +63,29 @@ const AuthProvider = ({ children }) => {
   // onAuthStateChange
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, currentUser => {
-      setUser(currentUser)
-      setLoading(false)
-    })
+        const userEmail = currentUser?.email || user?.email;
+        const loggedUser = { email: userEmail };
+        setUser(currentUser);
+        setLoading(false);
+        // if user exists then issue a token
+        if (currentUser) {
+            axios.post(`${import.meta.env.VITE_API_URL}/jwt`, loggedUser, { withCredentials: true })
+                .then(res => {
+                })
+        }
+        else {
+            axios.post(`${import.meta.env.VITE_API_URL}/logout`, loggedUser, {
+                withCredentials: true
+            })
+                .then(res => {
+                    console.log(res.data);
+                })
+        }
+    });
     return () => {
-      return unsubscribe()
+        return unsubscribe();
     }
-  }, [])
+}, [])
 
   const authInfo = {
     user,

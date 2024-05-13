@@ -5,7 +5,9 @@ import { useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import axios from 'axios'
 import useAuth from '../hooks/useAuth'
+import useAxiosSecure from '../hooks/useAxiosSecure';
 const AddFood = () => {
+  const axiosSecure = useAxiosSecure();
     const { user } = useAuth()
   const navigate = useNavigate()
 
@@ -36,11 +38,15 @@ const AddFood = () => {
       foodStatus,
     }
     try {
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_API_URL}/addFood`,
-        foodData
-      )
-      console.log(data)
+      axiosSecure.post('/addFood',foodData)
+        .then(res =>{
+
+        })
+      // const { data } = await axios.post(
+      //   `${import.meta.env.VITE_API_URL}/addFood`,
+      //   foodData
+      // )
+      // console.log(data)
       toast.success('Food Added Successfully!')
     } catch (err) {
       console.log(err)
@@ -127,6 +133,19 @@ const AddFood = () => {
                 />
               </div>
             </div>
+            <div className="mt-4">
+     <span className="mx-1 text-lg mb-3  px-2  text-gray-600 dark:text-gray-300">Donator : </span>
+            <div className="flex items-center">
+                <div className=" px-2  flex items-center">
+                    <img className="object-cover h-10 rounded-full" src={user.photoURL||"https://images.unsplash.com/photo-1586287011575-a23134f797f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=48&q=60"} alt="Avatar"></img>
+                   <div>
+                   <p href="#" className="mx-2 font-semibold text-gray-700 dark:text-gray-200" tabIndex="0" role="link"> Email: {user.email}</p>
+                   <p href="#" className="mx-2 font-semibold text-gray-700 dark:text-gray-200" tabIndex="0" role="link">Name: {user.displayName}</p>
+                   </div>
+                </div>
+               
+            </div>
+        </div>
          
             <div className='flex justify-end mt-6'>
               <button className='px-8 py-2.5 leading-5 text-white transition-colors duration-300 transhtmlForm bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600'>

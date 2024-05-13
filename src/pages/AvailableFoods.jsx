@@ -1,10 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import FoodCard from './FoodCard';
+import useAuth from '../hooks/useAuth';
 
 const AvailableFoods = () => {
+  const{loading}=useAuth()
     const [foodData,setFoodData]=useState([])
     const [searchText,setSearchText]=useState('')
+    const [layout,setLayout]=useState(false)
     const [search,setSearch]=useState('')
     const [sort,setSort]=useState('')
     useEffect(() => {
@@ -31,10 +34,20 @@ const AvailableFoods = () => {
         setSearch('')
         setSearchText('')
       }
+    if (loading){
+        return <div className='flex justify-center items-center my-12'><span className="loading loading-ball loading-xs"></span>
+        <span className="loading loading-ball loading-sm"></span>
+        <span className="loading loading-ball loading-md"></span>
+        <span className="loading loading-ball loading-lg"></span></div>
+      }
+   
     return (<div className='my-10'>
       
       <div>
         <div className='flex flex-col md:flex-row justify-center items-center gap-5 my-6'>
+        <button onClick={()=>setLayout(!layout)} className='btn focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300'>
+        Change Layout
+          </button>
          
           <form onSubmit={handleSearch}>
             <div className='flex p-1 overflow-hidden border rounded-lg    focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300'>
@@ -73,7 +86,7 @@ const AvailableFoods = () => {
           </button>
         </div>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 justify-center gap-5 ">
+        <div className={`grid md:grid-cols-2 ${layout?'':'lg:grid-cols-3'} justify-center items-center gap-5 `}>
         {foodData?.map((food, i) => (
           <FoodCard key={i} food={food}></FoodCard>
         ))}

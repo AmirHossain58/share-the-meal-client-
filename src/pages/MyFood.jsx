@@ -1,25 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const MyFood = () => {
-    const { user } = useAuth();
-    const [userAddData, setUseAddData] = useState([]);
-    const [userAddData1, setUseAddData1] = useState([]);
-    const [userAddDataSort, setUseAddDataSort] = useState([]);
-    // console.log(userAddData);
-    // const {foodName,foodImage,foodQuantity,foodStatus,pickupLocation,_id,expiredTime
-    // }=food||{}foodName
-    // console.log(userAddDataSort);
-    useEffect(() => {
-      fetch(`${import.meta.env.VITE_API_URL}/reqFood?email=${user.email}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setUseAddData(data);
-        });
-      
-    }, [user]);
-    return (
+  const{loading}=useAuth()
+  const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
+  const [userAddData, setUseAddData] = useState([]);
+  useEffect(() => {
+    // fetch(`${import.meta.env.VITE_API_URL}/reqFood?email=${user.email}`,{ withCredentials: true })
+    // .then((res) => res.json())
+    // .then((data) => {
+    //   // setUseAddData(data);
+    //   console.log(data)
+    // });
+    axiosSecure.get(`/reqFood?email=${user.email}`)
+        .then(res => setUseAddData(res.data))
+    
+  }, [user]);
+  if (loading){
+      return <div className='flex justify-center items-center my-12'><span className="loading loading-ball loading-xs"></span>
+      <span className="loading loading-ball loading-sm"></span>
+      <span className="loading loading-ball loading-md"></span>
+      <span className="loading loading-ball loading-lg"></span></div>
+    }
+  return (
         <div className="container mx-auto gap-5 my-14">
         <div className="overflow-x-auto">
           <table className="table">

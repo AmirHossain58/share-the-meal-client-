@@ -57,7 +57,8 @@ const UpdateFood = () => {
             <div className='flex container mx-auto justify-center items-center my-12'>
         <section className='md:w-2/3 p-2 md:p-6 mx-auto bg-white rounded-md shadow-md '>
           <h2 className='text-lg font-semibold text-gray-700 capitalize '>
-            PLACE DONATE A FOOD
+          Update The Food Information
+
           </h2>
   
           <form onSubmit={handleUpdateAFood}>
@@ -155,8 +156,8 @@ const UpdateFood = () => {
             </div>
          
             <div className='flex justify-end mt-6'>
-              <button className='px-8 py-2.5 leading-5 text-white transition-colors duration-300 transhtmlForm bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600'>
-               Add Food
+              <button className='px-8 py-2.5 leading-5 text-white uppercase  transition-colors duration-300 transhtmlForm bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600'>
+              Update 
               </button>
             </div>
           </form>

@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAuth from '../hooks/useAuth';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const ManageMyFood = () => {
-    const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
+  const{loading,user}=useAuth()
   const [userAddData, setUseAddData] = useState([]);
   const [userAddData1, setUseAddData1] = useState([]);
   const [userAddDataSort, setUseAddDataSort] = useState([]);
@@ -32,13 +34,14 @@ const ManageMyFood = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`${import.meta.env.VITE_API_URL}/food/${id}`, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-            if (data.deletedCount > 0) {
+        // fetch(`${import.meta.env.VITE_API_URL}/food/${id}`, {
+        //   method: "DELETE",
+        // })
+        //   .then((res) => res.json())
+        //   .then((data) => {
+          axiosSecure.delete(`/food/${id}`)
+        .then(res =>{
+           if (res.data.deletedCount > 0) {
               Swal.fire(
                 "Deleted!",
                 "Food has been deleted.",
@@ -53,6 +56,12 @@ const ManageMyFood = () => {
       }
     });
   };
+    if (loading){
+        return <div className='flex justify-center items-center my-12 '><span className="loading loading-ball loading-xs"></span>
+        <span className="loading loading-ball loading-sm"></span>
+        <span className="loading loading-ball loading-md"></span>
+        <span className="loading loading-ball loading-lg"></span></div>
+      }
     return (
         <div className="container mx-auto gap-5 my-14">
         <div className="overflow-x-auto">

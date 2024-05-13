@@ -63,6 +63,7 @@ const FoodCardDetails = () => {
       console.log(err)
     }
   }
+  
   return (
     <div>
       <div className="space-y-1 mt-5">

@@ -17,7 +17,7 @@ const FeaturedFoods = () => {
         getData()
       }, [])
     return (
-        <div className='container px-6 py-10 mx-auto'>
+        <div className='container md:px-6 px-2 md:py-10 mx-auto'>
             <div className="text-center space-y-3 mb-8 my-14">
         <h1 className="text-4xl font-bold">Featured Foods section</h1>
         <p className='max-w-[800px] mx-auto'>

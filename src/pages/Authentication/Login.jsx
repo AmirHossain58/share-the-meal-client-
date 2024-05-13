@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import useAuth from '../../hooks/useAuth';
 import toast from 'react-hot-toast';
-import { FaGithub } from 'react-icons/fa';
+import { FaEye, FaEyeSlash, FaGithub } from 'react-icons/fa';
 
 const Login = () => {
   const navigate = useNavigate()
   const location = useLocation()
+  const [show,setShow]=useState(false)
   const from = location.state || '/'
     const { user, logOut ,signIn, signInWithGoogle,signInWithGithub} = useAuth()
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -64,7 +65,7 @@ const Login = () => {
             </div>
   
             <p className='mt-3 text-5xl font-bold text-center text-gray-600 '>
-            Create an account or Login
+           Login Now  or  Create an account 
             </p>
   
             <div onClick={handleSignInWithGoogle} className='flex shadow-xl cursor-pointer items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 '>
@@ -147,10 +148,10 @@ const Login = () => {
                   className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
                   type='email'
                 />
-                 {errors.email && <span>This field is required</span>}
+                 {errors.email && <span className='text-red-500'>This field is required</span>}
               </div>
   
-              <div className='mt-4'>
+              <div className='mt-4 relative'>
                 <div className='flex justify-between'>
                   <label
                     className='block mb-2 text-sm font-medium text-gray-600 '
@@ -165,15 +166,19 @@ const Login = () => {
                   id='loggingPassword'
                   autoComplete='current-password'
                   name='password'
-                  className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
-                  type='password'
+                  className='block relative w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
+                  type={show?'text':'password'}
                 />
-                 {errors.password&& <span>This field is required</span>}
+                
+                 {errors.password&& <span className='text-red-500'>This field is required</span>}
+                 <div onClick={()=>{setShow(!show)}} className='absolute text-3xl right-4 top-[50%]'>
+            
+            {show?<FaEye />:<FaEyeSlash />}</div>
               </div>
               <div className='mt-6'>
                 <button
                   type='submit'
-                  className='w-full px-6 py-3 text-sm font-medium tracking-wide text-slate-950 capitalize transition-colors duration-300 transform bg-[#fec629] rounded-lg hover:bg-[#f7d16b] focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50'
+                  className='w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50'
                 >
                   Sign In
                 </button>

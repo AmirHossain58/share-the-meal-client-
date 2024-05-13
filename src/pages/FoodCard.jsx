@@ -15,8 +15,8 @@ const FoodCard = ({food}) => {
     }=food||{}
     return (
         <div>
-        <Link to={`/details/${_id}`}>
-        <Card className="w-full bg-gray-100 max-w-[26rem] shadow-xl min-h-[px] p-4 hover:scale-105 rounded transition-all">
+        <Link to={`/food/${_id}`}>
+        <Card className="w-full bg-gray-100 max-w-[26rem] shadow-xl min-h-[px] md:p-4 hover:scale-105 rounded transition-all">
    <CardHeader floated={false}>
      <img
      className=' bg-cover p-5 w-full max-h-[330px] min-h-[330px]'
@@ -49,7 +49,7 @@ const FoodCard = ({food}) => {
          5.0
        </Typography>
      </div>
-     <div className='flex justify-between px-2 text-lg font-semibold mb-2'>
+     <div className='flex flex-col md:flex-row justify-between px-2 text-lg font-semibold mb-2'>
      <Typography color="gray">
      Food Quantity :  {foodQuantity}
      </Typography>
