@@ -15,7 +15,7 @@ const Slide = ({ image, text }) => {
           </h1>
           <br />
           <Link
-            to='/add-job'
+
             className='w-full px-5 py-4 mt-4 text-sm font-medium  capitalize transition-colors duration-300 transform text-slate-950 bg-[#FEC629] rounded-md lg:w-auto hover:bg-[#c2a043] focus:outline-none focus:bg-gray-500'
           >
             Donate Now

@@ -18,7 +18,8 @@ const Donation = () => {
       <h1 className="text-4xl text-center  mb-14 font-black">Please: Give life-saving aid</h1>
       <div className="grid md:gap-12 grid-cols-1  md:grid-cols-12  ">
         <div className=" md:col-span-7">
-          <div className="relative  border-2 max-w-[600px] min-h-[205px] mt-[10%] md:mt-[35%] rounded-lg">
+          <div>
+          <div className="relative mx-auto  border-2 max-w-[600px] min-h-[205px] mt-[10%] md:mt-[35%] rounded-lg">
             <div className="absolute  rounded-lg overflow-hidden    md:-top-[130%] -top-[40%] px-9 ">
               <img
               className="rounded-lg"
@@ -35,6 +36,7 @@ const Donation = () => {
             <p className="text-[#007DBC]">21,457,779 meals</p>
             </div>
             </div>
+          </div>
           </div>
           <div className="border-2 p-9 rounded-xl my-12 font-bold bg-[#e0eff7]">
             <div className="flex justify-between mb-3">
