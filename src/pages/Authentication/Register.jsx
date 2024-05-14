@@ -22,20 +22,19 @@ const Register = () => {
       await updateUserProfile(data.name, data.photo)
       // Optimistic UI Update
       setUser({ ...result?.user, photoURL: data.photo, displayName: data.name })
-      console.log(data)
       navigate(from, { replace: true })
       toast.success('Signup Successful')
     } catch (err) {
       console.log(err)
       toast.error(err?.message)
     }
-     console.log(data)
     };
     const handleSignInWithGithub= async()=>{
       
       try{
         await signInWithGithub()
         toast.success('Signup Successful')
+        navigate(from, { replace: true })
     } catch (err) {
       console.log(err)
       toast.error(err?.message)
@@ -46,6 +45,7 @@ const Register = () => {
       try{
         await signInWithGoogle()
         toast.success('Signup Successful')
+        navigate(from, { replace: true })
     } catch (err) {
       toast.error(err?.message)
     }

@@ -24,9 +24,7 @@ const Login = () => {
       
     
            
-            console.log(data)
         }
-        console.log(data)
     };
     const handleSignInWithGithub= async()=>{
       

@@ -23,10 +23,10 @@ const Donation = () => {
   return (
     <div className="">
       <h1 className="text-4xl text-center  mb-14 font-black">Please: Give life-saving aid</h1>
-      <div className="grid gap-12  md:grid-cols-12  ">
+      <div className="grid md:gap-12 grid-cols-1  md:grid-cols-12  ">
         <div className=" md:col-span-7">
-          <div className="relative  border-2 max-w-[600px] min-h-[205px] mt-[35%] rounded-lg">
-            <div className="absolute  rounded-lg overflow-hidden -top-[130%] px-9 ">
+          <div className="relative  border-2 max-w-[600px] min-h-[205px] mt-[10%] md:mt-[35%] rounded-lg">
+            <div className="absolute  rounded-lg overflow-hidden    md:-top-[130%] -top-[40%] px-9 ">
               <img
               className="rounded-lg"
                 src="https://images.ctfassets.net/z0x29akdg5eb/3rklXZNEizovsaQmrRhJVs/2edd5282e9f23ea55b1bbb5b15e231d5/WF1852903_AP3I1385.jpg?w=561&h=351&fit=fill&q=80&fm=avif"
@@ -257,11 +257,6 @@ const Donation = () => {
             </Tabs>
           </div>
         </div>
-      </div>
-      <div id="calendar">
-        jjjjjjjjjjj
-        {
-        }
       </div>
     </div>
   );
