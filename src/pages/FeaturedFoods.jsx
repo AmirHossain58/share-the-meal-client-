@@ -32,7 +32,7 @@ const FeaturedFoods = () => {
       </div>
       <div className='text-center my-8'>
         <Link to={'/availableFoods'}>
-        <button className="btn">Show All Foods</button>
+        <button className="btn text-black hover:text-white bg-[#FCC429]">Show All Foods</button>
         </Link>
         </div>
         </div>

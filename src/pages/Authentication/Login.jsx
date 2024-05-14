@@ -5,6 +5,7 @@ import useAuth from '../../hooks/useAuth';
 import toast from 'react-hot-toast';
 import { FaEye, FaEyeSlash, FaGithub } from 'react-icons/fa';
 import { Helmet } from 'react-helmet-async';
+import loginImg  from '../../../public/login.svg'
 
 const Login = () => {
   const navigate = useNavigate()
@@ -50,11 +51,14 @@ const Login = () => {
     }
     }
     return (
-        <div className='flex justify-center items-center min-h-[calc(100vh-524px)]'>
+        <div className='flex flex-col md:flex-row justify-center items-center min-h-[calc(100vh-306px)]'>
                <Helmet>
             <title>Share the Meal | Login</title>
           </Helmet>
-        <div className='flex w-full max-w-sm mx-auto overflow-hidden bg-white dark:bg-slate-800 rounded-lg shadow-xl sad  lg:max-w-4xl '>
+          <div className='flex-'> 
+            <img src={loginImg} alt="" />
+            </div>
+        <div className='flex  max-w-sm mx-auto overflow-hidden bg-white dark:bg-slate-800 rounded-lg shadow-xl sad  lg:max-w-4xl '>
   
           <div className='w-full px-6 py-8 md:px-8'>
             
@@ -70,7 +74,7 @@ const Login = () => {
            Login Now  or  Create an account 
             </p>
   
-            <div onClick={handleSignInWithGoogle} className='flex shadow-xl cursor-pointer items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 '>
+            <div onClick={handleSignInWithGoogle} className='flex shadow-sm cursor-pointer items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 '>
               <div className='px-4 py-2'>
                 <svg className='w-6 h-6' viewBox='0 0 40 40'>
                   <path
@@ -96,7 +100,7 @@ const Login = () => {
                 Sign in with Google
               </span>
             </div>
-            <div onClick={handleSignInWithGithub} className='flex shadow-xl cursor-pointer items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 '>
+            <div onClick={handleSignInWithGithub} className='flex shadow-sm cursor-pointer items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 '>
               <div className='px-4 text-2xl py-2'>
                 {/* <svg className='w-6 h-6' viewBox='0 0 40 40'>
                   <path

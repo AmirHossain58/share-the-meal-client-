@@ -82,7 +82,7 @@ const FoodCard = ({food}) => {
         </div>
    </CardBody>
    <CardFooter className="py-3">
-   <button className="btn w-full font-bold">View Details</button>
+   <button className="btn w-full text-black border-none bg-[#FCC429] hover:text-white font-bold">View Details</button>
    </CardFooter>
           </Card>
         </Link> 

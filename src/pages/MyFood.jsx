@@ -14,16 +14,16 @@ const MyFood = () => {
   const{loading}=useAuth()
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
-  const [userAddData, setUseAddData] = useState([]);
   const getData = async () => {
     const { data } = await axiosSecure.get(`/reqFood?email=${user.email}`)
     return data
   }
   const queryClient = useQueryClient()
   const { data: food = [], isLoading } = useQuery({
-    queryFn: () => getData(),
+    queryFn: async() => await getData(),
     queryKey: ['food', user?.email],
   })
+
   
   if (isLoading){
       return <div className='flex w-full mx-auto justify-center items-center my-12'><span className="loading loading-ball loading-xs"></span>
@@ -52,7 +52,7 @@ const MyFood = () => {
             </thead>
             <tbody>
               {/* row 1 */}
-              {food?.map((data, i) => (
+              {food&&food?.map((data, i) => 
                 <tr key={data._id}>
                   <th>{i + 1}</th>
                   <td>{data?.donator?.name}</td>
@@ -62,7 +62,7 @@ const MyFood = () => {
                   <td>$ {data?.donation}</td>
                   <td></td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </div>

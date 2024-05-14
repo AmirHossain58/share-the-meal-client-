@@ -4,20 +4,13 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import useAuth from "../hooks/useAuth";
 import { Link, useNavigate } from "react-router-dom";
-import Carousel from "../components/Carousel";
 import DonationCarousel from "../components/DonationCarousel";
-import { Calendar } from 'fullcalendar'
 
-document.addEventListener('DOMContentLoaded', function() {
-    const calendarEl = document.getElementById('calendar')
-    const calendar = new Calendar(calendarEl, {
-      initialView: 'dayGridMonth'
-    })
-    calendar.render()
-  })
+
 const Donation = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
+  const [card,setCard]=useState(false)
   const [donate, setDonate] = useState("BDT 1,020.00");
   const [meals, setMeals] = useState("15 meals");
   return (
@@ -45,10 +38,10 @@ const Donation = () => {
           </div>
           <div className="border-2 p-9 rounded-xl my-12 font-bold bg-[#e0eff7]">
             <div className="flex justify-between mb-3">
-                <p >5/22/2024</p>
+                <p className="text-[#212529]">5/22/2024</p>
                 <p className="text-[#007DBC]">See All update</p>
             </div>
-            <p className="text-[212529]">For the first time, three convoys crossed into Gaza city via the Erez crossing in mid-April. A total of 25 trucks carrying around 404 metric tons of food parcels and wheat flour went through which is enough for around 80,000 people.</p>
+            <p className="text-[#212529]">For the first time, three convoys crossed into Gaza city via the Erez crossing in mid-April. A total of 25 trucks carrying around 404 metric tons of food parcels and wheat flour went through which is enough for around 80,000 people.</p>
           </div>
           <div className="border-2 p-9 rounded-xl my-12 font-bold ">
             <h2 className="text-4xl font-bold">Overview</h2>
@@ -158,7 +151,7 @@ const Donation = () => {
                   onClick={() => {
                     !user && navigate("/login");
                   }}
-                  className="btn w-full my-3 bg-yellow-400"
+                  className="btn w-full my-3 text-black hover:text-white bg-yellow-400"
                 >
                   Continue
                 </button>
@@ -238,8 +231,9 @@ const Donation = () => {
                 <button
                   onClick={() => {
                     !user && navigate("/login");
+
                   }}
-                  className="btn w-full my-3 bg-yellow-400"
+                  className="btn w-full my-3 bg-yellow-400 text-black"
                 >
                   Continue
                 </button>

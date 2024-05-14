@@ -81,7 +81,8 @@ const FoodCardDetails = () => {
         status
       )
       toast.success('Food Request Added Successfully!')
-      navigate('/myFoodRequest')
+      // setTimeout(navigate('/myFoodRequest'),1000)
+      navigate('/availableFoods')
     } catch (err) {
       console.log(err)
     }
@@ -153,6 +154,7 @@ const FoodCardDetails = () => {
           {/* <button className="btn w-full font-bold">Food Request</button> */}
           {/* You can open the modal using document.getElementById('ID').showModal() method */}
           <button
+         disabled={foodStatus==='requested'}
             className="btn w-1/2 "
             onClick={() => document.getElementById("my_modal_4").showModal()}
           >
@@ -221,7 +223,6 @@ const FoodCardDetails = () => {
                   id='foodId'
                   name='foodId'
                   type='text'
-                  required
                   value={donator?.email}
                   className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
                 />

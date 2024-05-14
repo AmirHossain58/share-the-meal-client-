@@ -2,7 +2,7 @@ import React from "react";
 import Marquee from "react-fast-marquee";
 const FoodRight = () => {
   return (
-    <div className="min-h-[550px] flex flex-col justify-center md:px-10 px-2 bg-[#eeaa36] md:pb-10">
+    <div className="min-h-[550px] flex flex-col justify-center md:px-10 px-2 text-black bg-[#f5b648] dark:bg-slate-900 dark:text-white md:pb-10">
       <div className="flex flex-col md:flex-row gap-4 justify-between md:py-24">
         <div className="flex-grow flex-1 space-y-2">
           <h1 className="text-2xl md:text-5xl font-black">FOOD IS A RIGHT. </h1>
@@ -25,10 +25,10 @@ const FoodRight = () => {
         </div>
       </div>
       <div>
-        <Marquee speed={30} className="tracking-widest mt-4">
-          IF YOU WOULDN'T EAT IT, DON'T LEAVE IT〰️IF YOU WOULDN'T EAT IT, DON'T
-          LEAVE IT〰️IF YOU WOULDN'T EAT IT, DON'T LEAVE IT〰️IF YOU WOULDN'T EAT
-          IT, DON'T LEAVE IT
+        <Marquee speed={30} className="tracking-widest text-xl font-bold mt-4">
+          IF YOU WOULDN'T EAT IT, DON'T LEAVE IT 〰️ IF YOU WOULDN'T EAT IT, DON'T
+          LEAVE IT 〰️ IF YOU WOULDN'T EAT IT, DON'T
+          LEAVE IT
         </Marquee>
       </div>
     </div>

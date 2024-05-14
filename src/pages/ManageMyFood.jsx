@@ -31,11 +31,7 @@ const ManageMyFood = () => {
      await axiosSecure.delete(`/food/${id}`)
     }
   })
-  useEffect(() => {
-      setUseAddData(myFood);
-    // const remaining = userAddData.filter((data) => data.donator.email === user.email);
-    // setUseAddData1(remaining);
-  }, [myFood]);
+ 
   const handleDelete = async(id) => {
     // console.log(id);
     Swal.fire({
@@ -86,7 +82,7 @@ const ManageMyFood = () => {
             </thead>
             <tbody>
               {/* row 1 */}
-              {userAddData?.map((data, i) => (
+              {myFood?.map((data, i) => (
                 <tr key={data._id}>
                   <th>{i + 1}</th>
                   <td>

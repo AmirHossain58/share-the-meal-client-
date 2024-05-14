@@ -6,6 +6,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { FaEye, FaEyeSlash, FaGithub } from 'react-icons/fa';
 import loginImg  from '../../../public/login.svg'
+import { Helmet } from 'react-helmet-async';
 const Register = () => {
     const navigate = useNavigate()
     const location = useLocation()
@@ -52,10 +53,13 @@ const Register = () => {
     }
     return (
         <div className='flex flex-col md:flex-row justify-center items-center min-h-[calc(100vh-306px)]'>
-          <div className='flex-1'> 
+          <Helmet>
+            <title>Share the Meal | Register</title>
+          </Helmet>
+          <div className='flex-'> 
             <img src={loginImg} alt="" />
             </div>
-      <div className='flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-[50%] flex-1'>
+      <div className='flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-[50%] flex-'>
         <div className='w-full px-6 py-8 md:px-8 '>
           <div className='flex justify-center mx-auto'>
             <img
