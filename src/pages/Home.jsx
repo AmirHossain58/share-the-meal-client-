@@ -5,6 +5,9 @@ import useAuth from '../hooks/useAuth';
 import Donation from './Donation';
 import FoodRight from './FoodRight';
 import { Helmet } from "react-helmet-async";
+import FoodWasteCalculator from './FoodWasteCalculator';
+import WhatWeDo from '../components/WhatWeDo';
+
 
 const Home = () => {
     const{loading}=useAuth()
@@ -22,6 +25,8 @@ const Home = () => {
             <Carousel></Carousel>
             <FoodRight></FoodRight>
             <FeaturedFoods></FeaturedFoods>
+            <WhatWeDo></WhatWeDo>
+            {/* <FoodWasteCalculator></FoodWasteCalculator> */}
             <Donation></Donation>
         </div>
     );

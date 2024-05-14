@@ -11,13 +11,7 @@ const Footer = () => {
   </Link>
   <p></p>
   </aside> 
-  <nav>
-    <h6 className="footer-title">Services</h6> 
-    <a className="link link-hover">Travel Planning Assistance</a>
-    <a className="link link-hover">Tour Packages</a>
-    <a className="link link-hover">Travel Booking</a>
-    <a className="link link-hover">Travel Guides and Blogs</a>
-  </nav> 
+  
   <nav>
     <h6 className="footer-title">Company</h6> 
     <a className="link link-hover">About us</a>
@@ -66,7 +60,7 @@ const Footer = () => {
 				<span className="mb-1">Message</span>
 				<textarea rows="3" className="block w-full rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-violet-600 dark:bg-gray-100"></textarea>
 			</label>
-			<button type="button" className="self-center px-8 bg-green-400 text-white py-2 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 dark:bg-violet-600 dark:text-gray-50 focus:dark:ring-violet-600 hover:dark:ring-violet-600">Submit</button>
+			<button type="button" className="self-center px-8 bg-[#FCC429] text-white py-2 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 dark:bg-violet-600 dark:text-gray-50 focus:dark:ring-violet-600 hover:dark:ring-violet-600">Submit</button>
 		</form>
 	</div>
 </section>

@@ -19,7 +19,7 @@ const FeaturedFoods = () => {
     return (
         <div className='container md:px-6 px-2 md:py-10 mx-auto'>
             <div className="text-center space-y-3 mb-8 my-14">
-        <h1 className="text-4xl font-bold">Featured Foods section</h1>
+        <h1 className="text-4xl font-bold">Featured Foods</h1>
         <p className='max-w-[800px] mx-auto'>
         Discover our handpicked selection of Featured Foods, carefully chosen to provide nourishment and delight. Each item represents a generous contribution towards combating hunger and fostering community support.
         </p>

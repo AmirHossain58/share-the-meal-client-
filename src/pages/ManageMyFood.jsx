@@ -25,7 +25,9 @@ const ManageMyFood = () => {
     queryFn: () => getData(),
     queryKey: ['food', user?.email],
   })
- 
+useEffect(()=>{
+  setUseAddData(myFood)
+},[myFood])
   const {mutateAsync}=useMutation({
     mutationFn:async({id})=>{
      await axiosSecure.delete(`/food/${id}`)
@@ -82,7 +84,7 @@ const ManageMyFood = () => {
             </thead>
             <tbody>
               {/* row 1 */}
-              {myFood?.map((data, i) => (
+              {userAddData?.map((data, i) => (
                 <tr key={data._id}>
                   <th>{i + 1}</th>
                   <td>
