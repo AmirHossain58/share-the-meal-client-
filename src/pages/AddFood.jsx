@@ -13,6 +13,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import { Helmet } from 'react-helmet-async';
 const AddFood = () => {
   const axiosSecure = useAxiosSecure();
     const { user } = useAuth()
@@ -61,6 +62,9 @@ const AddFood = () => {
   }
     return (
         <div className='flex container mx-auto justify-center items-center my-12'>
+          <Helmet>
+            <title>Share the Meal | Add Food</title>
+          </Helmet>
         <section className='md:w-2/3 p-2 md:p-6 mx-auto bg-white rounded-md shadow-md '>
           <h2 className='text-lg font-semibold text-gray-700 capitalize '>
             PLACE DONATE A FOOD

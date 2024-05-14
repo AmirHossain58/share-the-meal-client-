@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import useAuth from '../../hooks/useAuth';
 import toast from 'react-hot-toast';
 import { FaEye, FaEyeSlash, FaGithub } from 'react-icons/fa';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
   const navigate = useNavigate()
@@ -50,6 +51,9 @@ const Login = () => {
     }
     return (
         <div className='flex justify-center items-center min-h-[calc(100vh-524px)]'>
+               <Helmet>
+            <title>Share the Meal | Login</title>
+          </Helmet>
         <div className='flex w-full max-w-sm mx-auto overflow-hidden bg-white dark:bg-slate-800 rounded-lg shadow-xl sad  lg:max-w-4xl '>
   
           <div className='w-full px-6 py-8 md:px-8'>

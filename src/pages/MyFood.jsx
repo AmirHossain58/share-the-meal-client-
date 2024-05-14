@@ -9,6 +9,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import { Helmet } from 'react-helmet-async';
 const MyFood = () => {
   const{loading}=useAuth()
   const { user } = useAuth();
@@ -32,6 +33,9 @@ const MyFood = () => {
     }
   return (
         <div className="container mx-auto gap-5 my-14">
+               <Helmet>
+            <title>Share the Meal | My Food Request</title>
+          </Helmet>
         <div className="overflow-x-auto">
           <table className="table">
             {/* head */}

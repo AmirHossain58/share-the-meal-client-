@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import FoodCard from './FoodCard';
 import useAuth from '../hooks/useAuth';
+import { Helmet } from 'react-helmet-async';
 
 const AvailableFoods = () => {
   const{loading}=useAuth()
@@ -36,6 +37,9 @@ const AvailableFoods = () => {
       }
    
     return (<div className='my-10'>
+      <Helmet>
+            <title>Share the Meal | Available Foods</title>
+          </Helmet>
       
       <div>
         <div className='flex flex-col md:flex-row justify-center items-center gap-5 my-6'>

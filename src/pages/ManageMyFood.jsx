@@ -9,6 +9,7 @@ import {
   useQueryClient,
 } from '@tanstack/react-query'
 import axios from 'axios';
+import { Helmet } from 'react-helmet-async';
 const ManageMyFood = () => {
   const axiosSecure = useAxiosSecure();
   const{loading,user}=useAuth()
@@ -66,6 +67,9 @@ const ManageMyFood = () => {
   };
     return (
         <div className="container mx-auto gap-5 my-14">
+               <Helmet>
+            <title>Share the Meal | Manage My Foods</title>
+          </Helmet>
         <div className="overflow-x-auto">
           <table className="table">
             {/* head */}
