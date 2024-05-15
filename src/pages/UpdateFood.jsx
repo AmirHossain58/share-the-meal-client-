@@ -35,13 +35,14 @@ const UpdateFood = () => {
         foodName,
         foodImage,
         foodQuantity,
-        foodStatus,
+        foodStatus: foodStatus1,
         pickupLocation,
         _id,
         expiredTime,
         donator,
         additionalNotes
       } = food || {};
+      console.log(food.foodStatus);
      const handleUpdateAFood= async(e)=>{
         e.preventDefault()
         const form = e.target
@@ -160,9 +161,10 @@ const UpdateFood = () => {
               <select
                 name='foodStatus'
                 id='foodStatus'
-                defaultValue={foodStatus}
+                
                 className='border p-2 rounded-md'
               >
+                <option value='Available'>{foodStatus1}</option>
                 <option value='Available'>Available</option>
                 <option value='Requested'>Requested</option>
               </select>

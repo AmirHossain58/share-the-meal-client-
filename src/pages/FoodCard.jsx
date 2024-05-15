@@ -61,14 +61,14 @@ const FoodCard = ({food}) => {
      Status : {foodStatus}
      </Typography>
      </div>
-     <Typography className='px-2  text-left' color="gray">
-     Food Pickup: {pickupLocation}
-     </Typography>
-    <div className='text-left'>
+    <div className='text-left mb-2'>
     <Typography className='px-2 mt-2' color="gray">
      Expired Time: {new Date(expiredTime).toLocaleDateString()} {}
      </Typography>
     </div>
+     <Typography className='px-2  text-left' color="gray">
+     Pickup: {pickupLocation}
+     </Typography>
      <div className="mt-4">
      <div className='text-left'>
      <span className="mx-1 pb-2 text-xs px-2  text-gray-600 dark:text-gray-300">Donator:</span>

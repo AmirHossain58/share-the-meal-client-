@@ -27,23 +27,23 @@ Share The Meal, a web platform designed to reduce food waste by facilitating the
 - [React Router](https://reactrouter.com/)
 
 ## Packages Used
-- [@material-tailwind/react](https://www.npmjs.com/package/@material-tailwind/react): Brief description.
-- [@tanstack/react-query](https://www.npmjs.com/package/@tanstack/react-query): Brief description.
-- [@tanstack/react-query-devtools](https://www.npmjs.com/package/@tanstack/react-query-devtools): Brief description.
-- [axios](https://www.npmjs.com/package/axios): Brief description.
-- [firebase](https://www.npmjs.com/package/firebase): Brief description.
-- [framer-motion](https://www.npmjs.com/package/framer-motion): Brief description.
-- [fullcalendar](https://www.npmjs.com/package/fullcalendar): Brief description.
-- [localforage](https://www.npmjs.com/package/localforage): Brief description.
-- [react-datepicker](https://www.npmjs.com/package/react-datepicker): Brief description.
-- [react-fast-marquee](https://www.npmjs.com/package/react-fast-marquee): Brief description.
-- [react-helmet-async](https://www.npmjs.com/package/react-helmet-async): Brief description.
-- [react-hook-form](https://www.npmjs.com/package/react-hook-form): Brief description.
-- [react-hot-toast](https://www.npmjs.com/package/react-hot-toast): Brief description.
-- [react-icons](https://www.npmjs.com/package/react-icons): Brief description.
-- [react-router-dom](https://www.npmjs.com/package/react-router-dom): Brief description.
-- [react-tabs](https://www.npmjs.com/package/react-tabs): Brief description.
-- [sweetalert2](https://www.npmjs.com/package/sweetalert2): Brief description.
-- [swiper](https://www.npmjs.com/package/swiper): Brief description.
+- [@material-tailwind/react](https://www.npmjs.com/package/@material-tailwind/react)
+- [@tanstack/react-query](https://www.npmjs.com/package/@tanstack/react-query)
+- [@tanstack/react-query-devtools](https://www.npmjs.com/package/@tanstack/react-query-devtools)
+- [axios](https://www.npmjs.com/package/axios)
+- [firebase](https://www.npmjs.com/package/firebase)
+- [framer-motion](https://www.npmjs.com/package/framer-motion)
+- [fullcalendar](https://www.npmjs.com/package/fullcalendar)
+- [localforage](https://www.npmjs.com/package/localforage)
+- [react-datepicker](https://www.npmjs.com/package/react-datepicker)
+- [react-fast-marquee](https://www.npmjs.com/package/react-fast-marquee)
+- [react-helmet-async](https://www.npmjs.com/package/react-helmet-async)
+- [react-hook-form](https://www.npmjs.com/package/react-hook-form)
+- [react-hot-toast](https://www.npmjs.com/package/react-hot-toast)
+- [react-icons](https://www.npmjs.com/package/react-icons)
+- [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+- [react-tabs](https://www.npmjs.com/package/react-tabs)
+- [sweetalert2](https://www.npmjs.com/package/sweetalert2)
+- [swiper](https://www.npmjs.com/package/swiper)
 
 

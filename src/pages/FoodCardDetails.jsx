@@ -162,7 +162,9 @@ const FoodCardDetails = () => {
           </button>
           <dialog id="my_modal_4" className="modal w-full">
             <div className="modal-box  w-full">
-              <form method="dialog my-4">
+              <form onSubmit={(e)=>{
+                
+              }} method="dialog my-4">
                 {/* if there is a button in form, it will close the modal */}
                 <button className="btn btn-md btn-circle btn-ghost absolute text-xl  right-2 top-2">
                   ✕
