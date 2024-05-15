@@ -48,7 +48,7 @@ const FoodCard = ({food}) => {
    <CardBody className='flex-grow'>
     <div>
     <img
-     className=' mb-3 bg-cover  rounded-br-none rounded-[30%] rounded-tl-none overflow-hidden w-full max-h-[330px] min-h-[330px]'
+     className=' mb-3 bg-cover  rounded-br-none rounded-[35%] rounded-tl-none overflow-hidden w-full max-h-[280px] min-h-[280px]'
        src={foodImage}
        alt="food image"
      />

@@ -63,6 +63,12 @@ useEffect(()=>{
       }
     });
   };
+  if (loading){
+    return <div  className='flex justify-center items-center my-12'><span className="loading loading-ball loading-xs"></span>
+    <span className="loading loading-ball loading-sm"></span>
+    <span className="loading loading-ball loading-md"></span>
+    <span className="loading loading-ball loading-lg"></span></div>
+  }
     return (
         <div className="container mx-auto gap-5 my-14">
                <Helmet>
