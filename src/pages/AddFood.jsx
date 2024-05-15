@@ -69,6 +69,7 @@ const AddFood = () => {
           <h2 className='text-lg font-semibold text-gray-700 capitalize '>
             PLACE DONATE A FOOD
           </h2>
+          {/*  */}
   
           <form onSubmit={handleAddAFood}>
             <div className='grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2'>
