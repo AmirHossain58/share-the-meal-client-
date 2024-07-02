@@ -1,6 +1,6 @@
 
 # Share The Meal
-The Food Sharing and Surplus Reduction Platform is a web application designed to manage the sharing of surplus food within a community or organization. It aims to reduce food waste by allowing users to share and request food items efficiently.
+ Share The Meal ia a website to reduce food waste by allowing users to share and request food items efficiently.
 
 
 ## Live Link
@@ -50,3 +50,53 @@ The Food Sharing and Surplus Reduction Platform is a web application designed to
 - [swiper](https://www.npmjs.com/package/swiper)
 
 
+Installation and Setup
+Follow these steps to clone and run the Hostel Meals Management System locally:
+
+Clone the clint and server Repository
+
+```
+git clone //<repository-url>
+cd //<repository-folder>
+```
+Install Server Dependencies
+```
+cd //server
+npm install
+```
+Install Client Dependencies
+```
+cd //client
+npm install
+```
+Set Up Environment Variables
+
+## Create a .env file in the client directory with:
+
+//firebase env
+- VITE_apiKey=//api key
+- VITE_authDomain=// auth dommain
+- VITE_appId=// api id
+- VITE_projectId=//projectId
+- VITE_storageBucket=//storageBucket
+- VITE_messagingSenderId=//messagingSenderId
+
+- VITE_API_URL=http://localhost:8000
+
+
+## Create a .env file in the server directory with:
+
+- DB_USER= //database user name
+- DB_PASS=//password
+- ACCESS_TOKEN_SECRET= //token secret jwt
+Run the Server
+
+```
+cd //server
+npm start
+```
+Run the Client
+```
+cd //client
+npm start
+```
