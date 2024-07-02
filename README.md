@@ -1,10 +1,13 @@
 
 # Share The Meal
-Share The Meal, a web platform designed to reduce food waste by facilitating the sharing of surplus food between donors and recipients.
+The Food Sharing and Surplus Reduction Platform is a web application designed to manage the sharing of surplus food within a community or organization. It aims to reduce food waste by allowing users to share and request food items efficiently.
 
 
 ## Live Link
 ## [Share The Meal](https://share-the-meal-e8eba.web.app/)
+
+## server repo
+## [Link](https://github.com/AmirHossain58/share-the-meal-server)
 
 
 ## Features
