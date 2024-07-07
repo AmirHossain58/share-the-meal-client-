@@ -1,6 +1,6 @@
 
 # Share The Meal
- Share The Meal ia a website to reduce food waste by allowing users to share and request food items efficiently.
+ Share The Meal is a website to reduce food waste by allowing users to share and request food items efficiently.
 
 
 ## Live Link
